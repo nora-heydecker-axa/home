@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+key=$(mktemp)
+
+delete() {
+  echo "Deleting key"
+  rm "$key"
+}
+
+trap delete EXIT
+
+pubkey=$(age-keygen 2>&1 > "$key" | awk '{print $3}')
+echo "public key: $pubkey"
+echo "$pubkey" | pbcopy
+
+echo "Enter encrypted:"
+
+age -d -i "$key"

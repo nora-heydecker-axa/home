@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -eux
+
+root=$(git rev-parse --show-toplevel)
+cd "$root"
+git checkout "${1:-HEAD}" pnpm-lock.yaml
+pnpm install
+git add pnpm-lock.yaml

@@ -1,0 +1,39 @@
+[user]
+	name = Nora Heydecker
+	email = nils.heydecker@axa.ch
+[alias]
+	st = status
+	rc = "rebase --continue"
+	ra = "rebase --abort"
+        mc = "merge --continue"
+        ma = "merge --abort"
+	sw = !git checkout $(git branch --format \"%(refname:lstrip=2)\" | fzf)
+	fpush = "push --force-with-lease"
+	amend = commit --amend --no-edit
+
+[core]
+	autocrlf = false
+	editor = "nvim"
+	whitespace = space-before-tab,-indent-with-non-tab,trailing-space
+
+[diff "bin"]
+    # Use `hexdump` to diff binary files
+    textconv = hexdump -v -C
+[merge]
+    # Include summaries of merged commits in newly created merge commit messages
+    log = true
+
+[push]
+	autoSetupRemote = true
+	default = simple
+
+[init]
+    defaultbranch = main
+
+[merge]
+	conflictstyle = "zdiff3"
+
+[pull]
+    ff = only
+[advice]
+	detachedHead = true

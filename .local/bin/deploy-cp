@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+target_instance=$1
+feature_branch="$(git branch --show-current)"
+
+if [[ "$target_instance" != "dev1" ]] && [[ "$target_instance" != "dev2" ]] && [[ "$target_instance" != "acc1" ]] && [[ "$target_instance" != "acc2" ]]; then
+    echo "meeep '$target_instance' is no valid first param"
+    exit 1
+fi
+
+git_status="$(git status --short)"
+
+if [[ "$git_status" != "" ]]; then 
+    echo "stashing away working changes"
+    git stash push
+fi
+
+echo "merging $feature_branch into $target_instance"
+echo "============================================="
+
+git checkout "$target_instance"
+
+git fetch origin
+git reset --hard "origin/$target_instance"
+
+set +e
+git merge --squash "$feature_branch" -m "merge $feature_branch"
+
+if [[ $? > 0 ]]; then 
+    echo "merge conflicts while merging into $target_instance"
+    echo "fix them and then run"
+    echo "git commit -m \"merge $feature_branch\" && git push && git checkout $feature_branch"
+    exit 1
+fi
+set -e
+
+git commit -m "merge $feature_branch"
+
+git push
+
+git checkout "$feature_branch"
+
+if [[ "$git_status" != "" ]]; then
+    echo "unstashing working changes"
+    git stash pop
+fi
