@@ -2,6 +2,9 @@
 
 set -euo pipefail
 
+root=$(git rev-parse --show-toplevel)/../cp2
+cd "$root"
+
 target_instance=$1
 feature_branch="$(git branch --show-current)"
 
@@ -26,7 +29,7 @@ git fetch origin
 git reset --hard "origin/$target_instance"
 
 set +e
-git merge --squash "$feature_branch" -m "merge $feature_branch"
+git merge "$feature_branch" -m "merge $feature_branch"
 
 if [[ $? > 0 ]]; then 
     echo "merge conflicts while merging into $target_instance"
@@ -35,8 +38,6 @@ if [[ $? > 0 ]]; then
     exit 1
 fi
 set -e
-
-git commit -m "merge $feature_branch"
 
 git push
 
