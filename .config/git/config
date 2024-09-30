@@ -1,6 +1,6 @@
 [user]
 	name = Nora Heydecker
-	email = nils.heydecker@axa.ch
+	email = 180162335+nora-heydecker-axa@users.noreply.github.com
 [alias]
 	st = status
 	rc = "rebase --continue"
@@ -38,3 +38,8 @@
     ff = only
 [advice]
 	detachedHead = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
