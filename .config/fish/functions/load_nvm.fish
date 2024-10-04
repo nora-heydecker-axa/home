@@ -1,4 +1,5 @@
 # https://github.com/nvm-sh/nvm/blob/da2720a4292d02746a6b7fdc680c7e163c347355/README.md#fish
+# modified in a few ways to maek it faster
 function load_nvm --on-variable="PWD"
   set -l node_version $current_node_version
   set -l nvmrc_path (nvm_find_nvmrc)
