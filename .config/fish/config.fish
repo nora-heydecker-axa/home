@@ -9,7 +9,7 @@ if status is-interactive
 
     abbr g git
     abbr p pnpm
-    abbr t turbo
+    abbr t pnpm turbo
 
     zoxide init fish | source
 
