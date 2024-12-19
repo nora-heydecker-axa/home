@@ -34,6 +34,9 @@ function fish_prompt --description 'Write out the prompt'
     if pwd | grep cp2 >/dev/null
         set cp2 (set_color red) " (CP2)" $normal
     end
+    if pwd | grep cp3 >/dev/null
+        set cp2 (set_color red) " (CP3)" $normal
+    end
 
     echo -n -s (prompt_login)' ' (set_color $color_cwd) (prompt_pwd) $normal $cp2 (fish_vcs_prompt) $normal " "$prompt_status $suffix " "
 end

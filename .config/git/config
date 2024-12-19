@@ -16,6 +16,7 @@
 	autocrlf = false
 	editor = "nvim"
 	whitespace = space-before-tab,-indent-with-non-tab,trailing-space
+	attributesfile = /Users/nora/.gitattributes
 
 [diff "bin"]
     # Use `hexdump` to diff binary files
@@ -43,3 +44,6 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[merge "mergiraf"]
+	name = mergiraf
+	driver = mergiraf merge --git %O %A %B -s %S -x %X -y %Y -p %P
