@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+merge_commit=${1:-HEAD}
+echo "$merge_commit"
+
+old_base=$(git merge-base origin/develop "$merge_commit~")
+new_base=$(git merge-base origin/develop "$merge_commit")
+
+old_diff="$old_base..$merge_commit~"
+new_diff="$new_base..$merge_commit"
+
+git diff --no-ext-diff <(git diff "$old_diff") <(git diff "$new_diff")
