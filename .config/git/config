@@ -10,7 +10,9 @@
 	sw = !git checkout $(git branch --format \"%(refname:lstrip=2)\" | fzf)
 	fpush = "push --force-with-lease"
 	amend = commit --amend --no-edit
-	detach = !git checkout \"$(git rev-parse HEAD)\"
+	detach = "!git checkout \"$(git rev-parse HEAD)\""
+	hardupdate = "!git fetch && git reset --hard \"origin/$(git rev-parse --abbrev-ref HEAD)\""
+	hu = hardupdate
 
 [core]
 	autocrlf = false
