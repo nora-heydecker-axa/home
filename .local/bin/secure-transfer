@@ -10,7 +10,7 @@ delete() {
 trap delete EXIT
 
 pubkey=$(age-keygen 2>&1 > "$key" | awk '{print $3}')
-echo "public key: $pubkey"
+echo "public key (in clipboard): $pubkey"
 echo "$pubkey" | pbcopy
 
 echo "Enter encrypted:"
