@@ -13,6 +13,9 @@
 	detach = "!git checkout \"$(git rev-parse HEAD)\""
 	hardupdate = "!git fetch && git reset --hard \"origin/$(git rev-parse --abbrev-ref HEAD)\""
 	hu = hardupdate
+	c = checkout
+	m = merge
+	p = pull
 
 [core]
 	autocrlf = false
