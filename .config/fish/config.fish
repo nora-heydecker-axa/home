@@ -11,6 +11,11 @@ if status is-interactive
     abbr p pnpm
     abbr t pnpm turbo
 
+    abbr acc1 "git checkout acc1 && git hu"
+    abbr acc2 "git checkout acc2 && git hu"
+    abbr dev2 "git checkout dev2 && git hu"
+    abbr develop "git fetch && git checkout origin/develop"
+
     zoxide init fish | source
 
     # https://github.com/nvm-sh/nvm/blob/da2720a4292d02746a6b7fdc680c7e163c347355/README.md#fish

@@ -54,3 +54,6 @@
 	driver = mergiraf merge --git %O %A %B -s %S -x %X -y %Y -p %P
 [credential]
 	manager = osxkeychain
+
+[diff "ansible-vault"]
+    command = ansible-vault-diff

@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+difft <(ansible-vault view "$1") <(ansible-vault view "$2")
