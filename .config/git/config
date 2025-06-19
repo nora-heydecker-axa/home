@@ -15,7 +15,8 @@
 	hu = hardupdate
 	c = checkout
 	m = merge
-	p = pull
+	pl = pull
+        p = push
 
 [core]
 	autocrlf = false
