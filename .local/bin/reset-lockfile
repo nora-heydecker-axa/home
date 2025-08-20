@@ -4,6 +4,6 @@ set -eux
 
 root=$(git rev-parse --show-toplevel)
 cd "$root"
-git checkout "${1:-HEAD}" pnpm-lock.yaml
+git checkout "${1:-origin/develop}" pnpm-lock.yaml
 pnpm install
 git add pnpm-lock.yaml

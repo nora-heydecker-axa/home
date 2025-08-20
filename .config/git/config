@@ -17,6 +17,7 @@
 	m = merge
 	pl = pull
         p = push
+	cm = commit -m
 
 [core]
 	autocrlf = false
