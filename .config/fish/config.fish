@@ -4,6 +4,8 @@ set fish_greeting # disable greeting
 # *before* homebrew so we pick up nvm node.
 set --export --global PATH "/opt/homebrew/sbin:/opt/homebrew/bin:$PATH"
 
+export APOLLO_ELV2_LICENSE=accept
+
 if status is-interactive
     # Commands to run in interactive sessions can go here
 

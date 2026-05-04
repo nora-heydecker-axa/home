@@ -40,7 +40,7 @@
     defaultbranch = main
 
 [merge]
-	conflictstyle = "zdiff3"
+	conflictStyle = diff3
 
 [pull]
     ff = only
@@ -53,7 +53,7 @@
 	required = true
 [merge "mergiraf"]
 	name = mergiraf
-	driver = mergiraf merge --git %O %A %B -s %S -x %X -y %Y -p %P
+	driver = mergiraf merge --git %O %A %B -s %S -x %X -y %Y -p %P -l %L
 [credential]
 	manager = osxkeychain
 
